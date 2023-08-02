@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:techbloc_pro3/component/myColor.dart';
+import 'package:techbloc_pro3/component/myString.dart';
 import 'package:techbloc_pro3/gen/assets.gen.dart';
 import 'package:techbloc_pro3/view/home_screen.dart';
 import 'package:techbloc_pro3/view/profile_screen.dart';
 
-class MainScreen extends StatefulWidget {
-  
-  MainScreen({super.key});
-
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
 final GlobalKey<ScaffoldState>_key=GlobalKey();////connecct to widgetMather for draver made for me
 
-class _MainScreenState extends State<MainScreen> {
+class MainScreen extends StatelessWidget {
   var selectedIndexPage=0;
+
+  MainScreen({super.key});
   @override
   Widget build(BuildContext context) {
+  //DioServices().getMethode(ApiConstants.getHomeItem);
+
     var size=MediaQuery.of(context).size;
     var textTheme=Theme.of(context).textTheme;
     double bodyMargin=size.height/20;
@@ -46,12 +45,20 @@ class _MainScreenState extends State<MainScreen> {
                 ),
                 Divider(color: SolidColors.dividerColor,),
                 ListTile(
+                  
+                  
                 title:Text("اشتراک گذاری تک بلاگ ",style: textTheme.bodyMedium,),
+                onTap: () async{
+                  await Share.share(MyStrings.shareText);
+                },
           
                 ),
                 Divider(color: SolidColors.dividerColor,),
                 ListTile(
                 title:Text(" تک بلاگ در گیت هاب",style: textTheme.bodyMedium,),
+                onTap: () {
+                  
+                },
           
                 ),
                 
@@ -93,22 +100,23 @@ class _MainScreenState extends State<MainScreen> {
             
           //HomeScreen(size: size, textTheme: textTheme, bodyMargin: bodyMargin),
             Center(child: Positioned.fill(
-              child: IndexedStack(
+              child:  IndexedStack(
+                index:selectedIndexPage,
                 children: [
                 HomeScreen(size: size, textTheme: textTheme, bodyMargin: bodyMargin),
                 ProfileScreen(size: size, textTheme: textTheme, bodyMargin: bodyMargin),
                 ],
-                index:selectedIndexPage,
+               
 
-              ),
+              )
 
             )),
           btmNavMain(bodyMargin: bodyMargin
           , size: size,
           selectedPage: (int value) {
-            setState(() {
+            
               selectedIndexPage=value;
-            });
+          
           }
           ),
           ],

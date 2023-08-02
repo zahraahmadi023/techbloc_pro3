@@ -83,7 +83,7 @@ class _MyCatsState extends State<MyCats> {
                     ),
                   ),
                   
-                  Image.asset("assets/images/errow.png",scale:13,),
+                  //Image.asset("assets/images/errow.png",scale:13,),
                   ///////////////listcategori2
                   SizedBox(
                     width: double.infinity,

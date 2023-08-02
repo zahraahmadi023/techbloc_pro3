@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:techbloc_pro3/component/myColor.dart';
 import 'package:techbloc_pro3/models/fake_data.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Tec_Divider extends StatelessWidget {
   const Tec_Divider({
@@ -53,3 +54,15 @@ class TageList extends StatelessWidget {
   }
 }
 ////////////////
+MylaunchUrl(String url)async{
+  var uri=Uri.parse(url);
+  if(await canLaunchUrl(uri)){
+    await launchUrl(uri);
+  }else{
+    print("object");
+    //log("cannot in ${uri.toString()}");
+  }
+
+
+
+}

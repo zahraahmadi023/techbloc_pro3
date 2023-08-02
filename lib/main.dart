@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:techbloc_pro3/component/myColor.dart';
-import 'package:techbloc_pro3/view/my_cata.dart';
+import 'package:techbloc_pro3/view/main_screen.dart';
 void main() {
   SystemChrome.setSystemUIOverlayStyle(/////////////yek rang kardan appbar
 
@@ -17,7 +17,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
- 
   const MyApp({super.key});
 
   // This widget is the root of your application.
@@ -148,7 +147,8 @@ class MyApp extends StatelessWidget {
         ),
       ),
 
-      home:MyCats(),
+      home: MainScreen()
+      //home: MyCats(),
 
     
     );

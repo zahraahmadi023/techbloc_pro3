@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:techbloc_pro3/component/myColor.dart';
 import 'package:techbloc_pro3/component/myString.dart';
+import 'package:techbloc_pro3/controller/home_screen_controller.dart';
 import 'package:techbloc_pro3/models/fake_data.dart';
 
 import '../component/my_component.dart';
 
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({
+  HomeScreen({
     super.key,
     required this.size,
     required this.textTheme,
@@ -17,9 +19,13 @@ class HomeScreen extends StatelessWidget {
   final Size size;
   final TextTheme textTheme;
   final double bodyMargin;
+  HomeScreenController homeScreenController=Get.put(HomeScreenController());
 
   @override
   Widget build(BuildContext context) {
+    //TODO pakesh kon
+    homeScreenController.getHomeItem;
+    
     return SingleChildScrollView(
         
     child: Center(
